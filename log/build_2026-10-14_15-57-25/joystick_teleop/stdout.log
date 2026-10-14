@@ -1,0 +1,24 @@
+running develop
+running egg_info
+creating joystick_teleop.egg-info
+writing joystick_teleop.egg-info/PKG-INFO
+writing dependency_links to joystick_teleop.egg-info/dependency_links.txt
+writing entry points to joystick_teleop.egg-info/entry_points.txt
+writing requirements to joystick_teleop.egg-info/requires.txt
+writing top-level names to joystick_teleop.egg-info/top_level.txt
+writing manifest file 'joystick_teleop.egg-info/SOURCES.txt'
+reading manifest file 'joystick_teleop.egg-info/SOURCES.txt'
+writing manifest file 'joystick_teleop.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/pablo-cano/colmibot_ws/install/joystick_teleop/lib/python3.12/site-packages/joystick-teleop.egg-link (link to .)
+Installing joy_turtle_teleop script to /home/pablo-cano/colmibot_ws/install/joystick_teleop/lib/joystick_teleop
+
+Installed /home/pablo-cano/colmibot_ws/build/joystick_teleop
+running symlink_data
+creating /home/pablo-cano/colmibot_ws/install/joystick_teleop/share/ament_index
+creating /home/pablo-cano/colmibot_ws/install/joystick_teleop/share/ament_index/resource_index
+creating /home/pablo-cano/colmibot_ws/install/joystick_teleop/share/ament_index/resource_index/packages
+symbolically linking /home/pablo-cano/colmibot_ws/build/joystick_teleop/resource/joystick_teleop -> /home/pablo-cano/colmibot_ws/install/joystick_teleop/share/ament_index/resource_index/packages
+symbolically linking /home/pablo-cano/colmibot_ws/build/joystick_teleop/package.xml -> /home/pablo-cano/colmibot_ws/install/joystick_teleop/share/joystick_teleop
+creating /home/pablo-cano/colmibot_ws/install/joystick_teleop/share/joystick_teleop/launch
+symbolically linking /home/pablo-cano/colmibot_ws/build/joystick_teleop/launch/joy_turtle_teleop.launch.py -> /home/pablo-cano/colmibot_ws/install/joystick_teleop/share/joystick_teleop/launch

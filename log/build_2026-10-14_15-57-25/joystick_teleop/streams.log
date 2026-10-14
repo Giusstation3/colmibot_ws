@@ -1,0 +1,26 @@
+[5.031s] Invoking command in '/home/pablo-cano/colmibot_ws/build/joystick_teleop': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pablo-cano/colmibot_ws/build/joystick_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pablo-cano/colmibot_ws/install/joystick_teleop/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pablo-cano/colmibot_ws/build/joystick_teleop/build --no-deps symlink_data
+[5.913s] running develop
+[6.418s] running egg_info
+[6.418s] creating joystick_teleop.egg-info
+[6.468s] writing joystick_teleop.egg-info/PKG-INFO
+[6.469s] writing dependency_links to joystick_teleop.egg-info/dependency_links.txt
+[6.469s] writing entry points to joystick_teleop.egg-info/entry_points.txt
+[6.469s] writing requirements to joystick_teleop.egg-info/requires.txt
+[6.469s] writing top-level names to joystick_teleop.egg-info/top_level.txt
+[6.470s] writing manifest file 'joystick_teleop.egg-info/SOURCES.txt'
+[6.564s] reading manifest file 'joystick_teleop.egg-info/SOURCES.txt'
+[6.566s] writing manifest file 'joystick_teleop.egg-info/SOURCES.txt'
+[6.614s] running build_ext
+[6.626s] Creating /home/pablo-cano/colmibot_ws/install/joystick_teleop/lib/python3.12/site-packages/joystick-teleop.egg-link (link to .)
+[6.630s] Installing joy_turtle_teleop script to /home/pablo-cano/colmibot_ws/install/joystick_teleop/lib/joystick_teleop
+[6.630s] 
+[6.630s] Installed /home/pablo-cano/colmibot_ws/build/joystick_teleop
+[6.633s] running symlink_data
+[6.633s] creating /home/pablo-cano/colmibot_ws/install/joystick_teleop/share/ament_index
+[6.634s] creating /home/pablo-cano/colmibot_ws/install/joystick_teleop/share/ament_index/resource_index
+[6.634s] creating /home/pablo-cano/colmibot_ws/install/joystick_teleop/share/ament_index/resource_index/packages
+[6.634s] symbolically linking /home/pablo-cano/colmibot_ws/build/joystick_teleop/resource/joystick_teleop -> /home/pablo-cano/colmibot_ws/install/joystick_teleop/share/ament_index/resource_index/packages
+[6.634s] symbolically linking /home/pablo-cano/colmibot_ws/build/joystick_teleop/package.xml -> /home/pablo-cano/colmibot_ws/install/joystick_teleop/share/joystick_teleop
+[6.634s] creating /home/pablo-cano/colmibot_ws/install/joystick_teleop/share/joystick_teleop/launch
+[6.634s] symbolically linking /home/pablo-cano/colmibot_ws/build/joystick_teleop/launch/joy_turtle_teleop.launch.py -> /home/pablo-cano/colmibot_ws/install/joystick_teleop/share/joystick_teleop/launch
+[6.721s] Invoked command in '/home/pablo-cano/colmibot_ws/build/joystick_teleop' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pablo-cano/colmibot_ws/build/joystick_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pablo-cano/colmibot_ws/install/joystick_teleop/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pablo-cano/colmibot_ws/build/joystick_teleop/build --no-deps symlink_data

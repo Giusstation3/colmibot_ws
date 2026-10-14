@@ -1,0 +1,119 @@
+[0.606s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install']
+[0.606s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=2, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7acf5a320170>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7acf5a4effb0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7acf5a4effb0>>)
+[0.850s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.851s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.851s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.851s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.851s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.851s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.851s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/pablo-cano/colmibot_ws'
+[0.851s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.852s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.852s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.852s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.852s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.852s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.853s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.853s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.853s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.912s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.912s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.913s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.913s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.913s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.914s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.914s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.914s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.914s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.915s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.915s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.915s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.915s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.915s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.915s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.916s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.916s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.916s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.916s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.916s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.916s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.916s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.916s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.916s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.916s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.917s] Level 1:colcon.colcon_core.package_identification:_identify(src/joystick_teleop) by extensions ['ignore', 'ignore_ament_install']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src/joystick_teleop) by extension 'ignore'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src/joystick_teleop) by extension 'ignore_ament_install'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src/joystick_teleop) by extensions ['colcon_pkg']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src/joystick_teleop) by extension 'colcon_pkg'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src/joystick_teleop) by extensions ['colcon_meta']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src/joystick_teleop) by extension 'colcon_meta'
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src/joystick_teleop) by extensions ['ros']
+[0.918s] Level 1:colcon.colcon_core.package_identification:_identify(src/joystick_teleop) by extension 'ros'
+[0.937s] DEBUG:colcon.colcon_core.package_identification:Package 'src/joystick_teleop' with type 'ros.ament_python' and name 'joystick_teleop'
+[0.937s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.937s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.937s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.938s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.938s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[1.022s] Level 5:colcon.colcon_core.verb:set package 'joystick_teleop' build argument 'cmake_args' from command line to 'None'
+[1.022s] Level 5:colcon.colcon_core.verb:set package 'joystick_teleop' build argument 'cmake_target' from command line to 'None'
+[1.022s] Level 5:colcon.colcon_core.verb:set package 'joystick_teleop' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.022s] Level 5:colcon.colcon_core.verb:set package 'joystick_teleop' build argument 'cmake_clean_cache' from command line to 'False'
+[1.023s] Level 5:colcon.colcon_core.verb:set package 'joystick_teleop' build argument 'cmake_clean_first' from command line to 'False'
+[1.023s] Level 5:colcon.colcon_core.verb:set package 'joystick_teleop' build argument 'cmake_force_configure' from command line to 'False'
+[1.023s] Level 5:colcon.colcon_core.verb:set package 'joystick_teleop' build argument 'ament_cmake_args' from command line to 'None'
+[1.023s] Level 5:colcon.colcon_core.verb:set package 'joystick_teleop' build argument 'catkin_cmake_args' from command line to 'None'
+[1.023s] Level 5:colcon.colcon_core.verb:set package 'joystick_teleop' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.023s] DEBUG:colcon.colcon_core.verb:Building package 'joystick_teleop' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/pablo-cano/colmibot_ws/build/joystick_teleop', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/pablo-cano/colmibot_ws/install/joystick_teleop', 'merge_install': False, 'path': '/home/pablo-cano/colmibot_ws/src/joystick_teleop', 'symlink_install': True, 'test_result_base': None}
+[1.023s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[1.026s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[1.026s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/pablo-cano/colmibot_ws/src/joystick_teleop' with build type 'ament_python'
+[1.027s] Level 1:colcon.colcon_core.shell:create_environment_hook('joystick_teleop', 'ament_prefix_path')
+[1.062s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[1.062s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pablo-cano/colmibot_ws/install/joystick_teleop/share/joystick_teleop/hook/ament_prefix_path.dsv'
+[1.066s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pablo-cano/colmibot_ws/install/joystick_teleop/share/joystick_teleop/hook/ament_prefix_path.sh'
+[1.069s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.743s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/pablo-cano/colmibot_ws/src/joystick_teleop'
+[1.746s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.998s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: alias, install_egg_info, extract_messages, editable_wheel, register, rotate, test, build_scripts, clean, develop, check, build, install_headers, init_catalog, bdist_egg, upload_docs, easy_install, dist_info, bdist, upload, build_py, build_ext, egg_info, install_lib, saveopts, update_catalog, symlink_data, install_data, install, sdist, bdist_dumb, setopt, build_clib, compile_catalog, install_scripts, bdist_rpm
+[6.041s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools 'develop' options: --optimize, --find-links, --record, --version, --dry-run, --install-dir, --no-deps, --allow-hosts, --build-directory, --quiet, --user, --force-installation-into-system-dir, --multi-version, --install-layout, --script-dir, --upgrade, --help, --editable, --zip-ok, --uninstall, --index-url, --prefix, --site-dirs, --local-snapshots-ok, --no-find-links, --verbose, --always-copy, --exclude-scripts, --egg-path, --no-user-cfg, --always-unzip
+[6.060s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pablo-cano/colmibot_ws/build/joystick_teleop': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pablo-cano/colmibot_ws/build/joystick_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pablo-cano/colmibot_ws/install/joystick_teleop/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pablo-cano/colmibot_ws/build/joystick_teleop/build --no-deps symlink_data
+[7.747s] Level 1:colcon.colcon_core.shell:create_environment_hook('joystick_teleop', 'pythonpath_develop')
+[7.750s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pablo-cano/colmibot_ws/build/joystick_teleop' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pablo-cano/colmibot_ws/build/joystick_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pablo-cano/colmibot_ws/install/joystick_teleop/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pablo-cano/colmibot_ws/build/joystick_teleop/build --no-deps symlink_data
+[7.750s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pablo-cano/colmibot_ws/build/joystick_teleop/share/joystick_teleop/hook/pythonpath_develop.dsv'
+[7.752s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pablo-cano/colmibot_ws/build/joystick_teleop/share/joystick_teleop/hook/pythonpath_develop.sh'
+[7.793s] Level 1:colcon.colcon_core.environment:checking '/home/pablo-cano/colmibot_ws/install/joystick_teleop' for CMake module files
+[7.795s] Level 1:colcon.colcon_core.environment:checking '/home/pablo-cano/colmibot_ws/install/joystick_teleop' for CMake config files
+[7.796s] Level 1:colcon.colcon_core.environment:checking '/home/pablo-cano/colmibot_ws/install/joystick_teleop/lib'
+[7.797s] Level 1:colcon.colcon_core.environment:checking '/home/pablo-cano/colmibot_ws/install/joystick_teleop/bin'
+[7.797s] Level 1:colcon.colcon_core.environment:checking '/home/pablo-cano/colmibot_ws/install/joystick_teleop/lib/pkgconfig/joystick_teleop.pc'
+[7.798s] Level 1:colcon.colcon_core.environment:checking '/home/pablo-cano/colmibot_ws/install/joystick_teleop/lib/python3.12/site-packages'
+[7.798s] Level 1:colcon.colcon_core.shell:create_environment_hook('joystick_teleop', 'pythonpath')
+[7.798s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pablo-cano/colmibot_ws/install/joystick_teleop/share/joystick_teleop/hook/pythonpath.dsv'
+[7.799s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pablo-cano/colmibot_ws/install/joystick_teleop/share/joystick_teleop/hook/pythonpath.sh'
+[7.801s] Level 1:colcon.colcon_core.environment:checking '/home/pablo-cano/colmibot_ws/install/joystick_teleop/bin'
+[7.801s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(joystick_teleop)
+[7.802s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pablo-cano/colmibot_ws/install/joystick_teleop/share/joystick_teleop/package.dsv'
+[7.804s] INFO:colcon.colcon_core.shell:Creating package script '/home/pablo-cano/colmibot_ws/install/joystick_teleop/share/joystick_teleop/package.sh'
+[7.807s] INFO:colcon.colcon_core.shell:Creating package script '/home/pablo-cano/colmibot_ws/install/joystick_teleop/share/joystick_teleop/package.bash'
+[7.810s] INFO:colcon.colcon_core.shell:Creating package script '/home/pablo-cano/colmibot_ws/install/joystick_teleop/share/joystick_teleop/package.zsh'
+[7.813s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pablo-cano/colmibot_ws/install/joystick_teleop/share/colcon-core/packages/joystick_teleop)
+[7.818s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[7.818s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[7.818s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[7.818s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[7.853s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[7.853s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[7.853s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[7.940s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[7.942s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/pablo-cano/colmibot_ws/install/local_setup.sh'
+[7.947s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/pablo-cano/colmibot_ws/install/_local_setup_util_sh.py'
+[7.953s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/pablo-cano/colmibot_ws/install/setup.sh'
+[7.958s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/pablo-cano/colmibot_ws/install/local_setup.bash'
+[7.960s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/pablo-cano/colmibot_ws/install/setup.bash'
+[7.965s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/pablo-cano/colmibot_ws/install/local_setup.zsh'
+[7.968s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/pablo-cano/colmibot_ws/install/setup.zsh'

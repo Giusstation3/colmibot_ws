@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: joystick-teleop
+Version: 0.0.0
+Summary: Teleoperacion de turtlesim con joystick DualSense
+Maintainer: Pablo Cano
+Maintainer-email: juanpa2_canorub@outlook.com
+License: Apache-2.0
