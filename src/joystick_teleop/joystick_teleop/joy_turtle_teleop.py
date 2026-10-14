@@ -9,7 +9,7 @@ class JoyTurtleTeleop(Node):
         super().__init__('joy_turtle_teleop')
         self.declare_parameter('axis_linear', 1)      # palanca izquierda, arriba/abajo
         self.declare_parameter('axis_angular', 0)     # palanca izquierda, izquierda/derecha
-        self.declare_parameter('button_enable', 9)    # L1 (-1 = siempre activo)
+        self.declare_parameter('button_enable', -1)    # L1 (-1 = siempre activo)
         self.declare_parameter('button_turbo', 10)    # R1
         self.declare_parameter('scale_linear', 2.0)
         self.declare_parameter('scale_angular', 2.0)
