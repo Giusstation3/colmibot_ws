@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<robot name="colmibot">
+
+  <material name="gris">
+    <color rgba="0.6 0.6 0.6 1.0"/>
+  </material>
+  <material name="negro">
+    <color rgba="0.1 0.1 0.1 1.0"/>
+  </material>
+  <material name="azul">
+    <color rgba="0.2 0.4 0.8 1.0"/>
+  </material>
+  <material name="verde">
+    <color rgba="0.1 0.6 0.2 1.0"/>
+  </material>
+
+  <link name="base_link"/>
+
+  <link name="chasis_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/chasis.stl"/>
+      </geometry>
+      <material name="gris"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_chasis" type="fixed">
+    <parent link="base_link"/>
+    <child link="chasis_link"/>
+    <origin xyz="0 0 0" rpy="1.5708 0 -1.5708"/>
+  </joint>
+
+  <link name="rueda_izquierda_link">
+    <visual>
+      <origin xyz="0.087 -0.0165 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/rueda_izquierda.stl"/>
+      </geometry>
+      <material name="negro"/>
+    </visual>
+  </link>
+
+  <joint name="rueda_izquierda_joint" type="continuous">
+    <parent link="chasis_link"/>
+    <child link="rueda_izquierda_link"/>
+    <origin xyz="-0.087 0.0165 0" rpy="0 0 0"/>
+    <axis xyz="-1 0 0"/>
+  </joint>
+
+  <link name="rueda_derecha_link">
+    <visual>
+      <origin xyz="-0.087 -0.0165 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/rueda_derecha.stl"/>
+      </geometry>
+      <material name="negro"/>
+    </visual>
+  </link>
+
+  <joint name="rueda_derecha_joint" type="continuous">
+    <parent link="chasis_link"/>
+    <child link="rueda_derecha_link"/>
+    <origin xyz="0.087 0.0165 0" rpy="0 0 0"/>
+    <axis xyz="-1 0 0"/>
+  </joint>
+
+  <link name="rueda_loca_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/rueda_loca.stl"/>
+      </geometry>
+      <material name="negro"/>
+    </visual>
+  </link>
+
+  <joint name="chasis_to_rueda_loca" type="fixed">
+    <parent link="chasis_link"/>
+    <child link="rueda_loca_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="camara_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/camara.stl"/>
+      </geometry>
+      <material name="azul"/>
+    </visual>
+  </link>
+
+  <joint name="chasis_to_camara" type="fixed">
+    <parent link="chasis_link"/>
+    <child link="camara_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="imu_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/imu.stl"/>
+      </geometry>
+      <material name="verde"/>
+    </visual>
+  </link>
+
+  <joint name="chasis_to_imu" type="fixed">
+    <parent link="chasis_link"/>
+    <child link="imu_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="tof_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://robot_description/meshes/tof.stl"/>
+      </geometry>
+      <material name="verde"/>
+    </visual>
+  </link>
+
+  <joint name="chasis_to_tof" type="fixed">
+    <parent link="chasis_link"/>
+    <child link="tof_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+</robot>
