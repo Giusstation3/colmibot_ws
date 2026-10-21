@@ -1,1 +1,0 @@
-/home/pablo-cano/colmibot_ws/src/joystick_teleop/setup.py

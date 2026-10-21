@@ -1,2 +1,0 @@
-[console_scripts]
-joy_turtle_teleop = joystick_teleop.joy_turtle_teleop:main

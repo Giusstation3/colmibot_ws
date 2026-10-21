@@ -1,1 +1,0 @@
-/home/pablo-cano/colmibot_ws/build/joystick_teleop/launch/joy_turtle_teleop.launch.py
