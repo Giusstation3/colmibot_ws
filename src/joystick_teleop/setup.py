@@ -23,6 +23,7 @@ setup(
     entry_points={
         'console_scripts': [
             'joy_turtle_teleop = joystick_teleop.joy_turtle_teleop:main',
+            'joy_robot_teleop = joystick_teleop.joy_robot_teleop:main',
         ],
     },
 )
