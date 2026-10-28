@@ -1,22 +1,27 @@
 <?xml version="1.0"?>
+<!-- COLMIBOT: modelo para RViz y Gazebo Harmonic (ROS 2 Jazzy).
+     Masas, centros de masa e inercias: reales, medidos en SolidWorks (ver docs/datos_fisicos.csv).
+     Marco de cada link = marco del CAD (Y arriba, X eje de las ruedas, frente del robot = -Z del CAD). -->
 <robot name="colmibot">
 
-  <material name="gris">
-    <color rgba="0.6 0.6 0.6 1.0"/>
-  </material>
-  <material name="negro">
-    <color rgba="0.1 0.1 0.1 1.0"/>
-  </material>
-  <material name="azul">
-    <color rgba="0.2 0.4 0.8 1.0"/>
-  </material>
-  <material name="verde">
-    <color rgba="0.1 0.6 0.2 1.0"/>
-  </material>
+  <!-- ================= PARAMETROS (modificar aqui) =================
+       Si cambias radio o separacion de rueda, cambia tambien el plugin DiffDrive (abajo)
+       y la geometria de <collision> de las ruedas. -->
+
+  <material name="gris"><color rgba="0.6 0.6 0.6 1.0"/></material>
+  <material name="negro"><color rgba="0.1 0.1 0.1 1.0"/></material>
+  <material name="azul"><color rgba="0.2 0.4 0.8 1.0"/></material>
+  <material name="verde"><color rgba="0.1 0.6 0.2 1.0"/></material>
 
   <link name="base_link"/>
 
   <link name="chasis_link">
+    <inertial>
+      <origin xyz="0.00053023645 0.026752886 0.012959542" rpy="0 0 0"/>
+      <mass value="1.8203639"/>
+      <inertia ixx="0.0028231171" ixy="-3.247985e-05" ixz="4.029636e-05"
+               iyy="0.005759073" iyz="-2.921923e-06" izz="0.0038395866"/>
+    </inertial>
     <visual>
       <geometry>
         <mesh filename="package://robot_description/meshes/chasis.stl"/>
@@ -32,6 +37,18 @@
   </joint>
 
   <link name="rueda_izquierda_link">
+    <inertial>
+      <origin xyz="-0.0018702923 3.08336e-06 5.291e-08" rpy="0 0 0"/>
+      <mass value="0.019358118"/>
+      <inertia ixx="9.1142735e-06" ixy="-1.087862e-10" ixz="-1.8701641e-12"
+               iyy="4.6753925e-06" iyz="-2.5771442e-12" izz="4.6755426e-06"/>
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.012"/>
+      </geometry>
+    </collision>
     <visual>
       <origin xyz="0.087 -0.0165 0" rpy="0 0 0"/>
       <geometry>
@@ -46,9 +63,22 @@
     <child link="rueda_izquierda_link"/>
     <origin xyz="-0.087 0.0165 0" rpy="0 0 0"/>
     <axis xyz="-1 0 0"/>
+    <dynamics damping="0.01" friction="0.0"/>
   </joint>
 
   <link name="rueda_derecha_link">
+    <inertial>
+      <origin xyz="0.0018702923 3.08382e-06 0" rpy="0 0 0"/>
+      <mass value="0.019358118"/>
+      <inertia ixx="9.1142735e-06" ixy="1.088127e-10" ixz="4.7e-16"
+               iyy="4.6753924e-06" iyz="0" izz="4.6755427e-06"/>
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.012"/>
+      </geometry>
+    </collision>
     <visual>
       <origin xyz="-0.087 -0.0165 0" rpy="0 0 0"/>
       <geometry>
@@ -63,9 +93,28 @@
     <child link="rueda_derecha_link"/>
     <origin xyz="0.087 0.0165 0" rpy="0 0 0"/>
     <axis xyz="-1 0 0"/>
+    <dynamics damping="0.01" friction="0.0"/>
   </joint>
 
   <link name="rueda_loca_link">
+    <inertial>
+      <origin xyz="0 -0.0016258668 0" rpy="0 0 0"/>
+      <mass value="0.12378384"/>
+      <inertia ixx="0.00079995588" ixy="-3.122e-14" ixz="-9.9738e-13"
+               iyy="0.00080380897" iyz="-1.0479e-13" izz="9.2601211e-06"/>
+    </inertial>
+    <collision name="rueda_loca_trasera_col">
+      <origin xyz="0 0 0.080" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.0135"/>
+      </geometry>
+    </collision>
+    <collision name="rueda_loca_frontal_col">
+      <origin xyz="0 0 -0.080" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.0135"/>
+      </geometry>
+    </collision>
     <visual>
       <geometry>
         <mesh filename="package://robot_description/meshes/rueda_loca.stl"/>
@@ -81,6 +130,12 @@
   </joint>
 
   <link name="camara_link">
+    <inertial>
+      <origin xyz="-7.005562e-05 0.11958325 -0.022599615" rpy="0 0 0"/>
+      <mass value="0.3018622"/>
+      <inertia ixx="0.00047504645" ixy="2.5690822e-07" ixz="-2.0592985e-07"
+               iyy="0.00070242927" iyz="9.6902904e-05" izz="0.00045756625"/>
+    </inertial>
     <visual>
       <geometry>
         <mesh filename="package://robot_description/meshes/camara.stl"/>
@@ -96,6 +151,12 @@
   </joint>
 
   <link name="imu_link">
+    <inertial>
+      <origin xyz="-0.00050931294 0.055049988 -0.058837794" rpy="0 0 0"/>
+      <mass value="0.003012336"/>
+      <inertia ixx="1.2864487e-07" ixy="-1.1213789e-09" ixz="-1.9521616e-09"
+               iyy="1.5765984e-07" iyz="-8.9200531e-09" izz="8.682789e-08"/>
+    </inertial>
     <visual>
       <geometry>
         <mesh filename="package://robot_description/meshes/imu.stl"/>
@@ -111,6 +172,12 @@
   </joint>
 
   <link name="tof_link">
+    <inertial>
+      <origin xyz="-0.00059942354 0.073724242 -0.089489064" rpy="0 0 0"/>
+      <mass value="0.017814617"/>
+      <inertia ixx="2.9047932e-06" ixy="2.3687642e-09" ixz="1.7986496e-07"
+               iyy="2.6076279e-05" iyz="5.5044045e-08" izz="2.7180542e-05"/>
+    </inertial>
     <visual>
       <geometry>
         <mesh filename="package://robot_description/meshes/tof.stl"/>
@@ -124,5 +191,46 @@
     <child link="tof_link"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
+
+  <!-- ================= GAZEBO (RViz ignora todo lo de abajo) ================= -->
+
+  <!-- Las ruedas locas son esferas sin friccion; el joint fijo se conserva para que Gazebo
+       aplique la friccion a ese link. -->
+  <gazebo reference="chasis_to_rueda_loca">
+    <preserveFixedJoint>true</preserveFixedJoint>
+  </gazebo>
+  <gazebo reference="rueda_loca_link">
+    <mu1>0.0</mu1>
+    <mu2>0.0</mu2>
+  </gazebo>
+  <gazebo reference="rueda_izquierda_link">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+  </gazebo>
+  <gazebo reference="rueda_derecha_link">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+  </gazebo>
+
+  <gazebo>
+    <!-- Traccion diferencial: recibe /cmd_vel (Twist) y mueve las dos ruedas -->
+    <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
+      <left_joint>rueda_izquierda_joint</left_joint>
+      <right_joint>rueda_derecha_joint</right_joint>
+      <wheel_separation>0.174</wheel_separation>
+      <wheel_radius>0.030</wheel_radius>
+      <topic>cmd_vel</topic>
+      <odom_topic>odom</odom_topic>
+      <tf_topic>/tf</tf_topic>
+      <frame_id>odom</frame_id>
+      <child_frame_id>base_link</child_frame_id>
+      <odom_publish_frequency>30</odom_publish_frequency>
+    </plugin>
+    <!-- Publica el angulo de las ruedas para que RViz las vea girar -->
+    <plugin filename="gz-sim-joint-state-publisher-system"
+            name="gz::sim::systems::JointStatePublisher">
+      <topic>joint_states</topic>
+    </plugin>
+  </gazebo>
 
 </robot>
