@@ -214,8 +214,8 @@ gz topic -e -t /cmd_vel                  # lo que llega a Gazebo                
 - **`package 'joystick_teleop' not found`.** Causa: `build/` e `install/` se habían subido al repo con rutas de otra computadora (`/home/pablo-cano/...`). Solución: borrar `build/joystick_teleop` e `install/joystick_teleop` y recompilar. `build/`, `install/` y `log/` ahora están en `.gitignore`.
 - **`link[base_link] has no <inertial>` / `A model must...`.** Causa: Gazebo descarta un link raíz sin masa y todo lo que cuelga de él. Solución: agregar inercias reales al chasis y a los demás links.
 - **La rueda loca frenaba al robot.** Causa: las `<collision>` con `name` impedían que se aplicara la fricción 0. Solución: quitar el atributo `name`. Se comprobó con `gz sdf -p` que el SDF resultante trae `mu = 0`.
-- **`Entity creation successful`, pero el mundo se veía [COMPLETAR].** Causa: procesos `gz server` de ejecuciones anteriores seguían vivos y atendían la creación. Solución: cerrar con `Ctrl+C`, revisar con `pgrep -af "gz sim"` y limpiar con `pkill -f "gz sim"`.
-- **Gazebo no encontraba las mallas `package://...`.** Causa: [COMPLETAR]. Solución: el launch agrega esa ruta a `GZ_SIM_RESOURCE_PATH`.
+- **`Entity creation successful`, pero el mundo se veía.** Causa: procesos `gz server` de ejecuciones anteriores seguían vivos y atendían la creación. Solución: cerrar con `Ctrl+C`, revisar con `pgrep -af "gz sim"` y limpiar con `pkill -f "gz sim"`.
+- **Gazebo no encontraba las mallas `package://...`.** Causa:. Solución: el launch agrega esa ruta a `GZ_SIM_RESOURCE_PATH`.
 - **Error 404 de `protobuf` al instalar Gazebo.** Causa: lista de paquetes desactualizada. Solución: `sudo apt update` y volver a instalar.
 
 ## 8. Archivos nuevos o modificados
