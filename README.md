@@ -208,11 +208,20 @@ source install/setup.bash                                                       
 ```bash                                                                                                                                2 topic echo /cmd_vel                 # velocidade
 gz topic -e -t /cmd_vel                  # lo que llega a Gazebo                                                                       2 topic pub --rate 10 /cmd_vel geometry_msgs/msg/T mover sin joystick
 ```                                                                                                                                    
-## 7. Problemas encontrados y soluciones                                                                                               
-| Problema | Causa | Solución |                                                                                                        -|---|---|
-| Gazebo se cerraba al abrir con `Segmentation fault` | El motor de render `ogre2` falla con el driver gráfico de la VM (Mesa/EGL) |   r `--render-engine ogre` (ya está en el launch), my `QT_QPA_PLATFORM=xcb` |
-| `package 'joystick_teleop' not found` | Las carpetas `build/` e `install/` se habían subido al repo con enlaces a                    ome/pablo-cano/...`, rutas que no existen en otra oystick_teleop` e `install/joystick_teleop` yrecompilar. `build/`, `install/` y `log/` ahora están en `.gitignore` |                                                                link[base_link] has no <inertial>` y `A model mustzebo descarta un link raíz sin masa y todo lo quecuelga de él | Agregar inercias reales al chasis y a los demás links |                                                                 a rueda loca frenaba al robot | Las `<collision nan que se aplicara la fricción 0 | Quitar el atributo`name`; se comprobó con `gz sdf -p` que el SDF resultante trae `mu = 0` |                                                              Entity creation successful`, pero el mundo se veíaerver` de ejecuciones anteriores seguían vivos yatendían la creación | Cerrar con `Ctrl+C`, revisar con `pgrep -af "gz sim"` y limpiar con `pkill -f "gz sim"` |                       azebo no encontraba las mallas `package://...` | N | El launch agrega esa ruta a `GZ_SIM_RESOURCE_PATH`|                                                                                                                                      rror 404 de `protobuf` al instalar Gazebo | Lista `sudo apt update` y volver a instalar |
-                                                                                                                                       8. Archivos nuevos o modificados
-- `src/robot_description/urdf/colmibot.urdf`: inercias, colisiones, fricción y plugins.                                                src/robot_description/launch/gazebo.launch.py`: laión.
-- `src/joystick_teleop/joystick_teleop/joy_robot_teleop.py` y su launch: control del robot.                                            docs/datos_fisicos.csv`: masas, centros de masa e s.
+## 7. Problemas y soluciones
+
+- **Gazebo se cerraba con `Segmentation fault`.** Causa: el motor `ogre2` falla con el driver gráfico de la VM (Mesa/EGL). Solución: usar `--render-engine ogre` (ya está en el launch) y `QT_QPA_PLATFORM=xcb`.
+- **`package 'joystick_teleop' not found`.** Causa: `build/` e `install/` se habían subido al repo con rutas de otra computadora (`/home/pablo-cano/...`). Solución: borrar `build/joystick_teleop` e `install/joystick_teleop` y recompilar. `build/`, `install/` y `log/` ahora están en `.gitignore`.
+- **`link[base_link] has no <inertial>` / `A model must...`.** Causa: Gazebo descarta un link raíz sin masa y todo lo que cuelga de él. Solución: agregar inercias reales al chasis y a los demás links.
+- **La rueda loca frenaba al robot.** Causa: las `<collision>` con `name` impedían que se aplicara la fricción 0. Solución: quitar el atributo `name`. Se comprobó con `gz sdf -p` que el SDF resultante trae `mu = 0`.
+- **`Entity creation successful`, pero el mundo se veía [COMPLETAR].** Causa: procesos `gz server` de ejecuciones anteriores seguían vivos y atendían la creación. Solución: cerrar con `Ctrl+C`, revisar con `pgrep -af "gz sim"` y limpiar con `pkill -f "gz sim"`.
+- **Gazebo no encontraba las mallas `package://...`.** Causa: [COMPLETAR]. Solución: el launch agrega esa ruta a `GZ_SIM_RESOURCE_PATH`.
+- **Error 404 de `protobuf` al instalar Gazebo.** Causa: lista de paquetes desactualizada. Solución: `sudo apt update` y volver a instalar.
+
+## 8. Archivos nuevos o modificados
+
+- `src/robot_description/urdf/colmibot.urdf`: inercias, colisiones, fricción y plugins.
+- `src/robot_description/launch/gazebo.launch.py`: [COMPLETAR, el texto llegó cortado].
+- `src/joystick_teleop/joystick_teleop/joy_robot_teleop.py` y su launch: control del robot.
+- `docs/datos_fisicos.csv`: masas, centros de masa e inercias.
 
