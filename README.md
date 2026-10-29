@@ -215,9 +215,4 @@ gz topic -e -t /cmd_vel                  # lo que llega a Gazebo                
                                                                                                                                        8. Archivos nuevos o modificados
 - `src/robot_description/urdf/colmibot.urdf`: inercias, colisiones, fricción y plugins.                                                src/robot_description/launch/gazebo.launch.py`: laión.
 - `src/joystick_teleop/joystick_teleop/joy_robot_teleop.py` y su launch: control del robot.                                            docs/datos_fisicos.csv`: masas, centros de masa e s.
-                                                                                                                                       es de mandárselo a JP
-                                                                                                                                       Pon el enlace del video en la sección 1. Verifica
-2. Botón de turbo: el código de Axalli dice "R1", pero con tu control Xbox 360 el botón 10 suele ser presionar la palanca derecha.     Pruébalo y corrige la línea de controles.
-3. Radio de la bola de la rueda loca: JuanPa lo marcó como pendiente de confirmar en SolidWorks. Si ya lo confirmó, quita "aproximado" de la sección 4.
-4. No lo reemplacen por el README actual: esto se agrega a lo que ya existe de la actividad 9, para no borrar el trabajo de JuanPa.
-5. No incluí ninguna mención a Claude.
+
