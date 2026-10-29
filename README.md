@@ -152,3 +152,72 @@ coordenadas del ensamble. |
 | Con `Fixed Frame = map`, RViz marcaba error porque r el Fixed Frame a `base_link`. |
 | Los ejes de TF eran tan grandes que tapaban el modelo. | Bajar el `Marker Scale` del display TF. |
 | Las ruedas deben girar sobre su centro, pero el STLs del ensamble. | Detalle en la sección 4, "Ruedas". |
+
+
+# Actividad 10 – Colmibot en Gazebo con control por joystick (ROS 2 Jazzy)
+
+## 1. Video de demostración
+https://drive.google.com/drive/folders/1LXp7g6m840I4MAt03XXF4Ll71zE0mhmG?usp=sharing
+
+## 2. Qué se hizo
+Cargamos el modelo del robot (paquete `robot_description` de la actividad anterior) en Gazebo, le agregamos lo necesario para que se comporte como un robot diferencial real y lo controlamos con el joystick usando ROS 2. Todo se levanta con un solo launch.
+
+| Integrante | Parte |
+|---|---|
+| Axalli | Nodo `joy_robot_teleop`: convierte el joysl`) |
+| JuanPa | Datos físicos medidos en SolidWorks (`docs/datos_fisicos.csv`) y URDF para Gazebo |
+| Giuseppe | Integración: launch, puente ROS–Gazebo,
+
+## 3. Herramientas utilizadas
+- ROS 2 Jazzy sobre Ubuntu 24.04 (máquina virtual en Parallels).
+- Gazebo Sim 8.15 (Harmonic), con los paquetes `ros_g
+- `robot_state_publisher` para publicar el modelo.
+- `joy` (`joy_node`) para leer el control Xbox 360.
+- SolidWorks para obtener masas, centros de masa e inercias.
+- Instalación: `sudo apt install ros-jazzy-ros-gz ros
+
+## 4. Modificaciones al modelo (`urdf/colmibot.urdf`)
+El URDF original solo tenía parte visual. Para Gazebo se agregó:
+
+- **Inercia (`<inertial>`)** en todos los links: masa, centro de masa y tensor de inercia reales, medidos en SolidWorks (tabla en
+`docs/datos_fisicos.csv`). La masa total es 2.3055 kg
+- **Colisiones (`<collision>`)**: un cilindro por cada rueda motriz (radio 0.030 m, ancho 0.012 m) y dos esferas para la rueda loca.
+Estas medidas salen de las mallas STL.
+- **Fricción**: ruedas motrices con `mu = 1.0`; rueda loca con `mu = 0`, para que deslice sin frenar al robot.
+- **Plugin `DiffDrive`** (tracción diferencial): separadio de rueda 0.030 m. Recibe `cmd_vel` y publica`odom`.
+- **Plugin `JointStatePublisher`**: publica el ángulo
+- **Etiqueta `preserveFixedJoint`** en la rueda loca, para que Gazebo conserve ese link separado y le aplique su fricción.             
+Convención de ejes: en `base_link`, X es el frente del robot y Y la izquierda. Un giro positivo de las ruedas hace avanzar al robot.   
+**Valores que no salen del CAD** (son supuestos): fricción de las ruedas (1.0), amortiguamiento de las juntas (0.01) y el radio de la  a de la rueda loca (0.0135 m, aproximado a partir
+                                                                                                                                       5. Arquitectura de comunicación
+```                                                                                                                                    stick → joy_node → /joy → joy_robot_teleop → /cmd_DiffDrive → ruedas
+```                                                                                                                                    
+| Componente | Qué hace |                                                                                                              -|---|
+| `joy_node` | Lee el control y publica `/joy` (`sensor_msgs/Joy`) |                                                                   joy_robot_teleop` | Convierte `/joy` en velocidadeetry_msgs/Twist`) |
+| `ros_gz_bridge` | Traduce `/cmd_vel` de ROS 2 al mensaje de Gazebo (`gz.msgs.Twist`) |                                               lugin `DiffDrive` | Calcula la velocidad de cada r lineal y angular |
+| `robot_state_publisher` | Publica el modelo en `robot_description` |                                                                 ros_gz_sim create` | Inserta el robot en el mundo
+                                                                                                                                       puente se limitó a un solo topic (`/cmd_vel`), quear el robot.
+                                                                                                                                       ontroles:** palanca izquierda, arriba/abajo para aa/derecha para girar. Velocidades máximas: 0.3 m/s y1.5 rad/s. El botón 10 activa el modo turbo (×1.5).                                                                                    
+## 6. Cómo ejecutarlo                                                                                                                  bash
+cd ~/colmibot_ws                                                                                                                       con build
+source install/setup.bash                                                                                                              QPA_PLATFORM=xcb LIBGL_ALWAYS_SOFTWARE=1 ros2 launaunch.py
+```                                                                                                                                    zebo.launch.py` inicia: Gazebo (mundo vacío, motorher`, la inserción del robot, el puente y el joystick.
+                                                                                                                                        dos variables de entorno son necesarias en la máqora con gráficos normales pueden no hacer falta.
+                                                                                                                                       a cerrar: `Ctrl+C` en la terminal del launch y com`pgrep -af "gz sim"`.
+                                                                                                                                       omprobaciones útiles:**
+```bash                                                                                                                                2 topic echo /cmd_vel                 # velocidade
+gz topic -e -t /cmd_vel                  # lo que llega a Gazebo                                                                       2 topic pub --rate 10 /cmd_vel geometry_msgs/msg/T mover sin joystick
+```                                                                                                                                    
+## 7. Problemas encontrados y soluciones                                                                                               
+| Problema | Causa | Solución |                                                                                                        -|---|---|
+| Gazebo se cerraba al abrir con `Segmentation fault` | El motor de render `ogre2` falla con el driver gráfico de la VM (Mesa/EGL) |   r `--render-engine ogre` (ya está en el launch), my `QT_QPA_PLATFORM=xcb` |
+| `package 'joystick_teleop' not found` | Las carpetas `build/` e `install/` se habían subido al repo con enlaces a                    ome/pablo-cano/...`, rutas que no existen en otra oystick_teleop` e `install/joystick_teleop` yrecompilar. `build/`, `install/` y `log/` ahora están en `.gitignore` |                                                                link[base_link] has no <inertial>` y `A model mustzebo descarta un link raíz sin masa y todo lo quecuelga de él | Agregar inercias reales al chasis y a los demás links |                                                                 a rueda loca frenaba al robot | Las `<collision nan que se aplicara la fricción 0 | Quitar el atributo`name`; se comprobó con `gz sdf -p` que el SDF resultante trae `mu = 0` |                                                              Entity creation successful`, pero el mundo se veíaerver` de ejecuciones anteriores seguían vivos yatendían la creación | Cerrar con `Ctrl+C`, revisar con `pgrep -af "gz sim"` y limpiar con `pkill -f "gz sim"` |                       azebo no encontraba las mallas `package://...` | N | El launch agrega esa ruta a `GZ_SIM_RESOURCE_PATH`|                                                                                                                                      rror 404 de `protobuf` al instalar Gazebo | Lista `sudo apt update` y volver a instalar |
+                                                                                                                                       8. Archivos nuevos o modificados
+- `src/robot_description/urdf/colmibot.urdf`: inercias, colisiones, fricción y plugins.                                                src/robot_description/launch/gazebo.launch.py`: laión.
+- `src/joystick_teleop/joystick_teleop/joy_robot_teleop.py` y su launch: control del robot.                                            docs/datos_fisicos.csv`: masas, centros de masa e s.
+                                                                                                                                       es de mandárselo a JP
+                                                                                                                                       Pon el enlace del video en la sección 1. Verifica
+2. Botón de turbo: el código de Axalli dice "R1", pero con tu control Xbox 360 el botón 10 suele ser presionar la palanca derecha.     Pruébalo y corrige la línea de controles.
+3. Radio de la bola de la rueda loca: JuanPa lo marcó como pendiente de confirmar en SolidWorks. Si ya lo confirmó, quita "aproximado" de la sección 4.
+4. No lo reemplacen por el README actual: esto se agrega a lo que ya existe de la actividad 9, para no borrar el trabajo de JuanPa.
+5. No incluí ninguna mención a Claude.
