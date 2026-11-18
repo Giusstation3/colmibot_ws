@@ -103,13 +103,13 @@
       <inertia ixx="0.00079995588" ixy="-3.122e-14" ixz="-9.9738e-13"
                iyy="0.00080380897" iyz="-1.0479e-13" izz="9.2601211e-06"/>
     </inertial>
-    <collision name="rueda_loca_trasera_col">
+    <collision>
       <origin xyz="0 0 0.080" rpy="0 0 0"/>
       <geometry>
         <sphere radius="0.0135"/>
       </geometry>
     </collision>
-    <collision name="rueda_loca_frontal_col">
+    <collision>
       <origin xyz="0 0 -0.080" rpy="0 0 0"/>
       <geometry>
         <sphere radius="0.0135"/>
