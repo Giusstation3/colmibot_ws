@@ -28,6 +28,8 @@ setup(
             'ejemplo_registro = colmibot_datos.registro:ejemplo',
             'mantenimiento = colmibot_datos.mantenimiento:main',
             'generar_codigos = colmibot_datos.generador:main',
+            'grabar_linea_base = colmibot_datos.sonido:main',
+            'detector_sonido = colmibot_datos.detector_sonido:main',
         ],
     },
 )
