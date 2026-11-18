@@ -26,6 +26,8 @@ setup(
     entry_points={
         'console_scripts': [
             'ejemplo_registro = colmibot_datos.registro:ejemplo',
+            'mantenimiento = colmibot_datos.mantenimiento:main',
+            'generar_codigos = colmibot_datos.generador:main',
         ],
     },
 )
